@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.env
+venv/
+.venv/
+# 运行时数据（群码图片与元数据），不进版本库
+data/current_qr.png
+data/meta.json

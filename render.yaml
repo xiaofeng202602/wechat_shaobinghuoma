@@ -1,0 +1,17 @@
+# Render 一键部署描述文件
+# 在 Render 控制台选择 "New +" -> "Blueprint" -> 关联本仓库即可。
+services:
+  - type: web
+    name: wechat-huoma
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    healthCheckPath: /
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false          # 部署后在 Render 控制台「Environment」里手动填写强密码
+      - key: SECRET_KEY
+        generateValue: true  # Render 自动生成随机密钥
+      - key: APP_NAME
+        value: 客户福利群
