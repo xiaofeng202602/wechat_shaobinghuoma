@@ -1,7 +1,7 @@
 # Railway 部署描述文件
-[build]
-buildCommand = "pip install -r requirements.txt"
-
+# 不写 buildCommand：交给 Nixpacks 自动识别 Python 并安装 requirements.txt（最稳）
+# 启动用 python app.py：app.py 内部用 os.environ.get("PORT") 读端口，
+# 不依赖 shell 变量展开，规避 Railway 下 "$PORT 不是有效端口" 的崩溃。
 [deploy]
 startCommand = "python app.py"
 healthcheckPath = "/"
