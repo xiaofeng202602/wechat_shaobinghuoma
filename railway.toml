@@ -3,6 +3,6 @@
 buildCommand = "pip install -r requirements.txt"
 
 [deploy]
-startCommand = "python -m gunicorn --bind 0.0.0.0:$PORT app:app"
+startCommand = "python app.py"
 healthcheckPath = "/"
 restartPolicyType = "on_failure"
